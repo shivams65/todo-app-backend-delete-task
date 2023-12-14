@@ -15,8 +15,11 @@ spec:
       containers:
       - name: delete-tasks
         env:
-        - name: CONNECTION_STRING
-          value: "Driver={ODBC Driver 17 for SQL Server};Server=tcp:todoapp01.database.windows.net,1433;Database=todoapp;Uid=devopsadmin;Pwd=Devadmin12$;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+        - name: connectionname
+          valueFrom:
+           secretKeyRef:
+                key: CONNECTION_STRING
+                name: secret-delete-tasks
         image: devopsinsiders/delete-task
         resources:
         ports:
