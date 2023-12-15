@@ -15,7 +15,7 @@ spec:
       containers:
       - name: delete-tasks
         env:
-        - name: connectionname
+        - name: CONNECTION_STRING
           valueFrom:
            secretKeyRef:
                 key: CONNECTION_STRING
